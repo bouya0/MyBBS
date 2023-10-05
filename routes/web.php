@@ -14,16 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $posts = [
-        // 'Title A',
-        // 'Title B',
-        // 'Title C',
-    ];
-
-    return view('index')
-        ->with(['posts' => $posts]);
-});
+Route::get('/', ['App\Http\Controllers\PostController', 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
