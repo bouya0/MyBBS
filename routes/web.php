@@ -15,7 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $posts = [
+        'Title A',
+        'Title B',
+        'Title C',
+    ];
+
+    return view('index')
+        ->with(['posts' => $posts]);
 });
 
 Route::get('/dashboard', function () {
