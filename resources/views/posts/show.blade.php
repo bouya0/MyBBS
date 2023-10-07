@@ -11,18 +11,7 @@
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto max-w-screen-md p-10 mt-10 bg-white rounded shadow-lg">
-        <h1 class="text-2xl font-bold border-b border-black pb-2 mb-4">My BBS</h1>
-        <ul class="space-y-2 ml-12">
-            @forelse ($posts as $index => $post)
-                <li class="text-blue-700">
-                    <a href="/posts/{{ $index }}">
-                        {{ $post }}
-                    </a>
-                </li>
-            @empty
-                <li>No posts yet!</li>
-            @endforelse
-        </ul>
+        <h1 class="text-2xl font-bold pb-2 mb-4">{{ $post }}</h1>
     </div>
 </body>
 </html>

@@ -15,9 +15,9 @@ use App\Http\Controllers\PostController;
 |
 */
 
-// Route::get('/', ['App\Http\Controllers\PostController', 'index']);
-// Route::get('/', [App\Http\Controllers\PostController::class, 'index']);
 Route::get('/', [PostController::class, 'index']);
+
+Route::get('/posts/{id}', [PostController::class, 'show']);//idはshow()の引数として渡される
 
 Route::get('/dashboard', function () {
     return view('dashboard');
