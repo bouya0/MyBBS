@@ -9,9 +9,9 @@ class PostController extends Controller
     public function index() 
     {
         $posts = [
-            // 'Title A',
-            // 'Title B',
-            // 'Title C',
+            'Title A',
+            'Title B',
+            'Title C',
         ];
     
         return view('index')

@@ -13,11 +13,12 @@
     <div class="container mx-auto max-w-screen-md p-10 mt-10 bg-white rounded shadow-lg">
         <h1 class="text-2xl font-bold border-b border-black pb-2 mb-4">My BBS</h1>
         <ul class="space-y-2 ml-12">
-            {{-- @foreach ($posts as $post)
-                <li>{{ $post }}</li>
-            @endforeach --}}
-            @forelse ($posts as $post)
-                <li>{{ $post }}</li>
+            @forelse ($posts as $index => $post)
+                <li>
+                    <a href="/posts/{{ $index }}">
+                        {{ $post }}
+                    </a>
+                </li>
             @empty
                 <li>No posts yet!</li>
             @endforelse
