@@ -11,7 +11,10 @@
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto max-w-screen-md p-10 mt-10 bg-white rounded shadow-lg">
-        <h1 class="text-2xl font-bold pb-2 mb-4">{{ $post }}</h1>
+        <div class="text-blue-700 mb-4">
+            &laquo; <a href="/" class="underline hover">Back</a>
+        </div>
+        <h1 class="text-2xl font-bold pb-2 mb-4 border-b border-black">{{ $post }}</h1>
     </div>
 </body>
 </html>
