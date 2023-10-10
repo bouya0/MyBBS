@@ -1,4 +1,7 @@
 <x-layout>
+    <x-slot name="title">
+        {{ $post}} - My BBS
+    </x-slot>
     <div class="text-blue-700 mb-4">
         &laquo; <a href="{{ route('posts.index')}}" class="underline hover">Back</a>
     </div>
