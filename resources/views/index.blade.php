@@ -6,7 +6,7 @@
     <ul class="space-y-2 ml-12">
         @forelse ($posts as $index => $post)
             <li class="text-blue-700 underline">
-                <a href="{{ route('posts.show', $post->id) }}">
+                <a href="{{ route('posts.show', $post) }}">
                     {{ $post->title }}
                 </a>
             </li>

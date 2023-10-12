@@ -8,5 +8,5 @@
     <h1 class="text-2xl font-bold pb-2 mb-4 border-b border-black">
         {{ $post->title }}
     </h1>
-    <p class="">{{ $post->body }}</p>
+    <p>{{ $post->body }}</p>
 </x-layout>
