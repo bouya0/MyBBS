@@ -9,9 +9,10 @@
     <title>{{ $title }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-100">
-    <div class="container mx-auto max-w-screen-md p-10 mt-10 bg-white rounded shadow-lg">
+<body class="bg-gray-200">
+    <div class="container mx-auto max-w-screen-md p-10 mt-10 bg-white rounded-lg shadow-2xl">
         {{ $slot }}
     </div>
 </body>
+
 </html>
