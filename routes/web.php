@@ -19,7 +19,11 @@ Route::get('/', [PostController::class, 'index'])
     ->name('posts.index');
 
 Route::get('/posts/{post}', [PostController::class, 'show'])//idはshow()の引数として渡される
-    ->name('posts.show');
+    ->name('posts.show')
+    ->where('post', '[0-9]+');
+
+Route::get('/posts/create}', [PostController::class, 'create'])
+->name('posts.create');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
