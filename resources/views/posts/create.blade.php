@@ -11,17 +11,27 @@
         Add New Post
     </h1>
 
-    <form method="post" action="">
+    <form method="post" action="{{ route('posts.store') }}">
         @csrf
 
-        <label>
-            Title
-            <input class="mb-4 w-full p-4 border-2 border-black rounded focus:border-blue-500" type="text" name="title">
-        </label>
-        <label>
-            Body
-            <textarea class="mb-4 h-40 w-full p-4 border-2 border-black rounded focus:border-blue-500" name="body"></textarea>
-        </label>
+        <div class="mb-4">
+            <label>
+                Title
+                <input class="w-full p-2 border-2 border-black rounded focus:border-blue-500" type="text" name="title" value="{{ old('title') }}">
+            </label>
+            @error('title')
+                <div class="text-sm text-red-500">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="mb-4">
+            <label>
+                Body
+                <textarea class="h-40 w-full p-2 border-2 border-black rounded focus:border-blue-500" name="body">{{ old('body') }}</textarea>
+            </label>
+            @error('body')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
+        </div>
         <div class="text-right">
             <button class="bg-gray-300 hover:bg-gray-200 text-black rounded px-4 py-1 border-2 border-black">Add</button>
         </div>
