@@ -22,11 +22,15 @@ Route::get('/posts/{post}', [PostController::class, 'show'])//idはshow()の引�
     ->name('posts.show')
     ->where('post', '[0-9]+');
 
-Route::get('/posts/create}', [PostController::class, 'create'])
-->name('posts.create');
+Route::get('/posts/create', [PostController::class, 'create'])
+    ->name('posts.create');
 Route::post('/posts/store', [PostController::class, 'store'])
-->name('posts.store');
+    ->name('posts.store');
 
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
+    ->name('posts.edit');
+Route::patch('/posts/{post}/update', [PostController::class, 'update'])
+    ->name('posts.update');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
