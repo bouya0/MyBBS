@@ -11,6 +11,6 @@
         {{ $post->title }}
     </h1>
     <p class="text-gray-700 text-lg leading-relaxed">
-        {{ $post->body }}
+        {!! nl2br(e($post->body)) !!}
     </p>
 </x-layout>
