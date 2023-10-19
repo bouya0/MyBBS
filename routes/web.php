@@ -31,6 +31,8 @@ Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
     ->name('posts.edit');
 Route::patch('/posts/{post}/update', [PostController::class, 'update'])
     ->name('posts.update');
+Route::delete('/posts/{post}/destroy', [PostController::class, 'destroy'])
+    ->name('posts.destroy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
