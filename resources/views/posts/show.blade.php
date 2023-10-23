@@ -27,6 +27,23 @@
         {!! nl2br(e($post->body)) !!}
     </p>
 
+    <h2 class="text-3xl font-extrabold my-4">Comments</h2>
+    <ul>
+        <li>
+            <form method="post" action="{{ route('comment.store', $post) }}" class="flex">
+                @csrf
+
+                <input type="text" name="body" class="w-full p-2 border-2 border-black rounded focus:border-blue-500">
+                <button class="ml-4 bg-gray-300 hover:bg-gray-200 text-black rounded px-4 py-1 border-2 border-black ">Add</button>
+            </form>
+        </li>
+        @foreach($post->comments as $comment)
+            <li class="list-disc ml-8">
+                {{ $comment->body }}
+            </li>
+        @endforeach
+    </ul>
+
     <script>
         'use strict';
 

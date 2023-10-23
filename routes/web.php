@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,9 @@ Route::patch('/posts/{post}/update', [PostController::class, 'update'])
     ->name('posts.update');
 Route::delete('/posts/{post}/destroy', [PostController::class, 'destroy'])
     ->name('posts.destroy');
+
+Route::post('/posts/{post}/comments', [CommentController::class, 'store'])
+    ->name('comment.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
