@@ -37,10 +37,18 @@
                 <button class="ml-4 bg-gray-300 hover:bg-gray-200 text-black rounded px-4 py-1 border-2 border-black ">Add</button>
             </form>
         </li>
-        @foreach($post->comments as $comment)
-            <li class="list-disc ml-8">
+        @foreach($post->comments()->latest()->get() as $comment)
+        <div class="flex">
+            <li class="list-disc ml-8 my-2">
                 {{ $comment->body }}
             </li>
+            <form method="post" action="{{ route('comments.destroy', $comment) }}" id="js-delete-comment">
+                @method('DELETE')
+                @csrf
+                
+                <button class="text-indigo-600 ml-8">[x]</button>
+            </form>
+        </div>
         @endforeach
     </ul>
 
@@ -49,6 +57,16 @@
 
         {
             document.getElementById('js-delete-post').addEventListener('submit', e => {
+                e.preventDefault();
+
+                if(!confirm('Sure to delete?')) {
+                    return;
+                }
+
+                e.target.submit();
+            });
+
+            document.getElementById('js-delete-comment').addEventListener('submit', e => {
                 e.preventDefault();
 
                 if(!confirm('Sure to delete?')) {

@@ -37,6 +37,8 @@ Route::delete('/posts/{post}/destroy', [PostController::class, 'destroy'])
 
 Route::post('/posts/{post}/comments', [CommentController::class, 'store'])
     ->name('comment.store');
+    Route::delete('/comments/{comment}/destroy', [CommentController::class, 'destroy'])
+    ->name('comments.destroy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
