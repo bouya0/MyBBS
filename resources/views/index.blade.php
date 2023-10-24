@@ -6,7 +6,9 @@
     <h1 class="text-4xl font-extrabold border-b-4 border-indigo-600 pb-4 mb-6
     flex justify-between items-center">
         <span>My BBS</span>
-        <a href="{{ route('posts.create') }}" class="text-2xl font-normal text-indigo-600 underline hover:text-indigo-800">[Add]</a>
+        <a href="{{ route('posts.create') }}" class="ml-4 bg-indigo-500 hover:bg-indigo-600 text-white rounded px-4 py-2 transition">
+            Add
+        </a>
     </h1>
     <ul class="space-y-4 ml-8">
         @forelse ($posts as $index => $post)

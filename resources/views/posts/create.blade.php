@@ -3,10 +3,10 @@
         Add New Post - My BBS
     </x-slot>
     <div class="mb-4">
-        <a href="{{ route('posts.index')}}" class="text-blue-600 underline hover:text-blue-800">
+        <a href="{{ route('posts.index')}}" class="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
             &laquo; Back
         </a>
-    </div>
+    </div>    
     <h1 class="text-3xl font-extrabold pb-4 mb-6 border-b-2 border-indigo-600">
         Add New Post
     </h1>
@@ -33,7 +33,7 @@
             @enderror
         </div>
         <div class="text-right">
-            <button class="bg-gray-300 hover:bg-gray-200 text-black rounded px-4 py-1 border-2 border-black">Add</button>
+            <button class="ml-4 bg-indigo-500 hover:bg-indigo-600 text-white rounded px-4 py-2 transition">Add</button>
         </div>
     </form>
 </x-layout>

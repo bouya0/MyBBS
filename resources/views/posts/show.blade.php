@@ -10,16 +10,16 @@
     <h1 class="flex justify-between text-3xl font-extrabold pb-4 mb-6 border-b-2 border-indigo-600">
         <span>{{ $post->title }}</span>
         <div class="flex">
-            <a href="{{ route('posts.edit', $post) }}"
-                class="no-underline text-indigo-600 underline hover:text-indigo-800 mr-4">
-                [Edit]
-            </a>
-            <form method="post" action="{{ route('posts.destroy', $post) }}" id="js-delete-post">
+            <a href="{{ route('posts.edit', $post) }}" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">
+                Edit
+            </a>            
+            <form method="post" action="{{ route('posts.destroy', $post) }}" id="js-delete-post" class="ml-2">
                 @method('DELETE')
                 @csrf
-                
-                <button class="text-indigo-600">[x]</button>
-            </form>
+                <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition">
+                    x
+                </button>
+            </form>            
         </div>
     </h1>
 
@@ -30,23 +30,25 @@
     <h2 class="text-3xl font-extrabold my-4">Comments</h2>
     <ul>
         <li>
-            <form method="post" action="{{ route('comment.store', $post) }}" class="flex">
+            <form method="post" action="{{ route('comment.store', $post) }}" class="flex items-center">
                 @csrf
-
-                <input type="text" name="body" class="w-full p-2 border-2 border-black rounded focus:border-blue-500">
-                <button class="ml-4 bg-gray-300 hover:bg-gray-200 text-black rounded px-4 py-1 border-2 border-black ">Add</button>
+                <input type="text" name="body" class="flex-grow p-2 border-2 border-gray-400 rounded focus:border-indigo-500 transition">
+                <button class="ml-4 bg-indigo-500 hover:bg-indigo-600 text-white rounded px-4 py-2 transition">
+                    Add
+                </button>
             </form>
+            
         </li>
         @foreach($post->comments()->latest()->get() as $comment)
-        <div class="flex">
+        <div class="flex items-center">
             <li class="list-disc ml-8 my-2">
                 {{ $comment->body }}
             </li>
-            <form method="post" action="{{ route('comments.destroy', $comment) }}" id="js-delete-comment">
+            <form method="post" action="{{ route('comments.destroy', $comment) }}" id="js-delete-comment" class="ml-2">
                 @method('DELETE')
                 @csrf
                 
-                <button class="text-indigo-600 ml-8">[x]</button>
+                <button class="px-2 bg-red-600 text-white rounded hover:bg-red-700 transition">x</button>
             </form>
         </div>
         @endforeach
